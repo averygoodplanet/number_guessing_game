@@ -7,13 +7,14 @@
 	</head>
 
 	<body>
-		<h5>Guess the Number Game</h5>
+		<h1>Guess the Number Game</h1>
+		<h3>Press Play to Start, and then enter your guesses for a number between 1 and 100, by clicking Submit.</h3>
 		<button id="play">Play</button>
-		<input type="number" id="guess">Enter your guess here:</input>
-		
-		
-		
-		
+		<form name="form1">Enter your guess here:
+			<input type="number" name="guess">
+			<input type="button" value="Submit" id="submit_guess">
+		</form>
+		<p id="user_message"></p>
 		
 		<script src="script.js"></script>
 	</body>

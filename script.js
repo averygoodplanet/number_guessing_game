@@ -1,7 +1,7 @@
 $(document).ready( function () {
 	
 	var min = 1;
-	var max = 10;
+	var max = 100;
 	var game_on = false;
 	var previous_guess = 0
 	var answer = 0;
@@ -14,7 +14,7 @@ $(document).ready( function () {
 		//getRandomInt function from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 	} 
 	
-	$('button').on('click', function () { //PLAY 
+	$('#play').on('click', function () { //PLAY 
 		//Play button sets new hidden number; puts game into play; first guess to true.
 	
 		first_guess = true; // global variable; keeping track of first time guessing, so won't compare "previous guess" to current guess on the first guess.
@@ -24,13 +24,10 @@ $(document).ready( function () {
 		console.log("Answer: "+answer);
 
 		game_on = true;
+
+		$("#user_message").text("");
 		
-		//testing
-		while (guess != answer) {
-		guess = parseInt(prompt("Guess again?"));
-		console.log(comparison(guess));
-		}
-	});
+		});
 	
 	function comparison (guess) { //COMPARES guess and answer and outputs message to user.
 		var guess_difference = Math.abs(answer - guess);
@@ -72,4 +69,12 @@ $(document).ready( function () {
 		return message;
 	}
 
+	$('#submit_guess').on('click', function () {
+		if(game_on){
+			guess = document.form1.guess.value;
+			$("#user_message").text(comparison(guess));
+		} else {
+			$("#user_message").text("Press Play to start a new game.");
+		}
+	});
 }); 
