@@ -6,7 +6,8 @@ $(document).ready( function () {
 	var previous_guess = 0
 	var answer = 0;
 	var first_guess= true;
-	
+	//testing
+	var guess = 0;
 
 	function getRandomInt(min, max) { 
 		return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -22,7 +23,13 @@ $(document).ready( function () {
 		
 		console.log("Answer: "+answer);
 
-		game_on = true;	
+		game_on = true;
+		
+		//testing
+		while (guess != answer) {
+		guess = parseInt(prompt("Guess again?"));
+		console.log(comparison(guess));
+		}
 	});
 	
 	function comparison (guess) { //COMPARES guess and answer and outputs message to user.
@@ -30,48 +37,39 @@ $(document).ready( function () {
 		var previous_guess_difference = Math.abs(answer - previous_guess);
 		var message = "";
 		
-		if (guess == answer) {
-			message = "Your guess was correct. Press 'Play' to play again.";
-			console.log(message);
-			game_on = false;
+		if(guess < min || guess > max) {
+			message = "Your guess was not a number between "+min+" and "+max;
 		} else {
-			if (first_guess) {
-			
+			if (guess == answer) {
+				message = "Your guess was correct. Press 'Play' to play again.";
+				game_on = false;
 			} else {
-			
+				if (first_guess) {
+					if (guess > answer) {
+						message = "Your guess was TOO HIGH.";
+						first_guess = false;
+					} 
+					if (guess < answer) {
+						message = "Your guess was TOO LOW.";
+						first_guess = false;
+					} 
+				} else {
+					if (previous_guess_difference > guess_difference) {
+						message = "You are getting warmer.";
+					}
+					if (previous_guess_difference < guess_difference) {
+						message = "You are getting colder.";
+					}
+					if (previous_guess_difference == guess_difference) {
+						message = "You're about the same.";
+					}
+				}
 			}
 		}
+		
+		previous_guess = guess;
+		
+		return message;
 	}
-	/*$("#guess").keypress(function (event) {
-	
-		if ( event.which == 13) { //When ENTER pressed in guess box
-			
-			var guess = $("#play").val();
-			console.log("Guess: "+guess);
-				
-			if (!first_guess) {
-				if (previous_guess_difference > guess_difference) {
-					message = "  You are getting warmer.";
-				}
-				if (previous_guess_difference < guess_difference) {
-					message = "  You are getting colder.";
-				}
-			}
-			
-			if (guess > answer) {
-				alert("Your guess was TOO HIGH."+message);
-			} else if (guess < answer) {
-				alert("Your guess was TOO LOW."+message);
-			} else if (guess < min || guess > max) {
-				alert("Your guess was outside of the range of "+min+" to "+max);
-			}else if (guess == answer) {
-				alert("Your guess was correct. Press 'Play' to play again.");
-			} else {
-				alert("I didn't understand your guess.");
-			}
-			
-			previous_guess = guess;
-			first_guess += 1; 
-		}
-	}); */
+
 }); 
