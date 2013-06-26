@@ -4,37 +4,52 @@ $(document).ready( function () {
 	var max = 10;
 	var game_on = false;
 	var previous_guess = 0
+	var answer = 0;
+	var first_guess= true;
 	
-	//getRandomInt function from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-	function getRandomInt(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
+
+	function getRandomInt(min, max) { 
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+		//getRandomInt function from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 	} 
 	
-	$('button').on('click', function () { //Play button sets new hidden number.
+	$('button').on('click', function () { //PLAY 
+		//Play button sets new hidden number; puts game into play; first guess to true.
 	
-		var first_time_guess = 0; //keeping track of first time guessing, so won't compare "previous guess" to current guess on the first guess.
+		first_guess = true; // global variable; keeping track of first time guessing, so won't compare "previous guess" to current guess on the first guess.
 		
-		var answer = getRandomInt(min, max);
+		answer = getRandomInt(min, max); //global variable
 		
 		console.log("Answer: "+answer);
 
 		game_on = true;	
 	});
 	
-	
-
+	function comparison (guess) { //COMPARES guess and answer and outputs message to user.
+		var guess_difference = Math.abs(answer - guess);
+		var previous_guess_difference = Math.abs(answer - previous_guess);
+		var message = "";
+		
+		if (guess == answer) {
+			message = "Your guess was correct. Press 'Play' to play again.";
+			console.log(message);
+			game_on = false;
+		} else {
+			if (first_guess) {
+			
+			} else {
+			
+			}
+		}
+	}
 	/*$("#guess").keypress(function (event) {
 	
 		if ( event.which == 13) { //When ENTER pressed in guess box
 			
 			var guess = $("#play").val();
 			console.log("Guess: "+guess);
-
-			/*var guess_difference = Math.abs(answer - guess);
-			var previous_guess_difference = Math.abs(answer - previous_guess);
-			var message = "";
 				
-			if (first_time_guess > 0) {
+			if (!first_guess) {
 				if (previous_guess_difference > guess_difference) {
 					message = "  You are getting warmer.";
 				}
@@ -56,7 +71,7 @@ $(document).ready( function () {
 			}
 			
 			previous_guess = guess;
-			first_time_guess += 1; 
+			first_guess += 1; 
 		}
 	}); */
 }); 
