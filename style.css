@@ -3,3 +3,70 @@ AUTHOR: Peter Himmelreich
 		averygoodplanet@gmail.com
 		averygoodplanet.com
 */
+
+body {
+	background-image: url(images/bright_squares.png);
+}
+
+#center_wrapper {
+	width: 980px;
+	margin: auto;
+}
+
+#center_wrapper  > * {
+	text-align: center;
+	margin: 0 auto 0 auto;
+}
+
+#title {
+	margin-top: 80px;
+	font-size: 70px;
+}
+
+#start {
+	margin-top: 40px;
+	margin-bottom: 15px;
+}
+
+button {
+	display: block;
+	height: 60px;
+	width: 120px;
+	font-size: 25px;
+	color: white;
+	background-color: #00FF00;
+	border-radius: 100px !important;
+}
+
+#instructions {
+	margin-top: 60px;
+	width: 300px;
+	margin-bottom: 20px;
+	font-weight: 500;
+}
+
+#user_message {
+	margin-top: 20px;
+	color: #FF0000;
+	font-size: 50px;
+	text-align: center;
+}
+
+#submit_guess {
+	height: 60px;
+	width: 120px;
+	font-size: 25px;
+	color: white;
+	background-color: #00FF00;
+	border-radius: 100px !important;
+}
+
+form {
+	font-size: 40px;
+}
+
+#number_input {
+	height: 40px;
+	width: 80px;
+	font-size: 30px;
+}

@@ -25,7 +25,7 @@ $(document).ready( function () {
 
 		game_on = true;
 
-		$("#user_message").text("");
+		$("#user_message").text("New game started\u2014make your guess above!");
 		
 		});
 	
@@ -38,7 +38,7 @@ $(document).ready( function () {
 			message = "Your guess was not a number between "+min+" and "+max;
 		} else {
 			if (guess == answer) {
-				message = "Your guess was correct. Press 'Play' to play again.";
+				message = "CORRECT! Press Play to restart.";
 				game_on = false;
 			} else {
 				if (first_guess) {
