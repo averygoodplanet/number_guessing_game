@@ -27,6 +27,8 @@ $(document).ready( function () {
 
 		$("#user_message").text("New game started\u2014make your guess above!");
 		
+		fadeInText("#user_message");
+		
 		});
 	
 	function comparison (guess) { //COMPARES guess and answer and outputs message to user.
@@ -69,12 +71,19 @@ $(document).ready( function () {
 		return message;
 	}
 
+	function fadeInText (area) {
+		$(area).css({opacity:0});
+		$(area).animate({opacity:1}, 1000);
+	}
+	
 	$('#submit_guess').on('click', function () {
 		if(game_on){
 			guess = document.form1.guess.value;
 			$("#user_message").text(comparison(guess));
+			fadeInText("#user_message");
 		} else {
 			$("#user_message").text("Press Play to start a new game.");
+			fadeInText("#user_message");
 		}
 	});
 }); 
