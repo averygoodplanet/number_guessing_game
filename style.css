@@ -38,6 +38,7 @@ button {
 	color: white;
 	background-color: #00FF00;
 	border-radius: 100px !important;
+	background-image: linear-gradient(to bottom, #FFFFFF 0%, #00FF00 30%);
 }
 
 #instructions {
@@ -65,6 +66,7 @@ button {
 	color: white;
 	background-color: #00FF00;
 	border-radius: 100px !important;
+	background-image: linear-gradient(to bottom, #FFFFFF 0%, #00FF00 30%);
 }
 
 form {
