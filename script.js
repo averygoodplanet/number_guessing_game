@@ -6,8 +6,10 @@ $(document).ready( function () {
 	var previous_guess = 0
 	var answer = 0;
 	var first_guess= true;
+
 	//testing
-	var guess = 0;
+
+	//end-testing
 
 	function getRandomInt(min, max) { 
 		return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -87,3 +89,7 @@ $(document).ready( function () {
 		}
 	});
 }); 
+
+	$("#number_input").on('focus', function () { //Clear input box when user clicks in it.
+		$(this).val("");
+	});
