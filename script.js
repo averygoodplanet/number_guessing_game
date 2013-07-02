@@ -95,7 +95,7 @@ $(document).ready( function () {
 			callCompare();
 		}
 		
-		if(event.which < 48 || event.which > 57) {
+		if(event.which < 48 || event.which > 57) { //Prevents entry of letters in the input box.
 			return false;
 		}
 	});
