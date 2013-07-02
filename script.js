@@ -76,8 +76,8 @@ $(document).ready( function () {
 		$(area).css({opacity:0});
 		$(area).animate({opacity:1}, 1000);
 	}
-	
-	$('#submit_guess').on('click', function () { //Calls COMPARE function when Submit clicked.
+
+	function callCompare () {
 		if(game_on){
 			guess = document.form1.guess.value;
 			$("#user_message").text(comparison(guess));
@@ -86,18 +86,15 @@ $(document).ready( function () {
 			$("#user_message").text("Press Play to start a new game.");
 			fadeInText("#user_message");
 		}
+	}
+	
+	$('#submit_guess').on('click', function () { //Calls COMPARE function when Submit clicked.
+		callCompare();
 	});
 	
 	$("#number_input").keypress(function (event) {
 		if(event.which == 13){
-			if(game_on){
-				guess = document.form1.guess.value;
-				$("#user_message").text(comparison(guess));
-				fadeInText("#user_message");
-			} else {
-				$("#user_message").text("Press Play to start a new game.");
-				fadeInText("#user_message");
-			}
+			callCompare();
 		}
 	});
 	
