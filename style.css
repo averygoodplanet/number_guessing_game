@@ -69,7 +69,7 @@ button {
 	background-image: linear-gradient(to bottom, #FFFFFF 0%, #00FF00 30%);
 }
 
-form {
+#enter {
 	font-size: 30px;
 	font-family: 'Verdana', sans-serif;
 	margin-top: 20px;

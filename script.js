@@ -7,9 +7,6 @@ $(document).ready( function () {
 	var answer = 0;
 	var first_guess= true;
 
-	//testing
-	//end-testing
-
 	function getRandomInt(min, max) { 
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 		//getRandomInt function from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
@@ -79,7 +76,8 @@ $(document).ready( function () {
 
 	function callCompare () {
 		if(game_on){
-			guess = document.form1.guess.value;
+			g = document.getElementById("number_input").value;
+			guess = parseInt(g, 10);
 			$("#user_message").text(comparison(guess));
 			fadeInText("#user_message");
 		} else {
@@ -93,8 +91,12 @@ $(document).ready( function () {
 	});
 	
 	$("#number_input").keypress(function (event) {
-		if(event.which == 13){
+		if(event.which == 13){ //Calls callCompare() on Enter key.
 			callCompare();
+		}
+		
+		if(event.which < 48 || event.which > 57) {
+			return false;
 		}
 	});
 	
